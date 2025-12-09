@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import logo from '../src/focussed.png';
+import logo from '../src/focussed.jpeg';
+import connection from '../src/connection.jpeg';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+
 
 // --- MOCK DATABASE FOR PRODUCTS ---
 const categoriesDB = {
@@ -27,6 +30,13 @@ const sidebarList = [
 
 const PageHome = () => (
   <div className="fade-in">
+    <div >
+      <img 
+        src={connection}
+        alt="Focussed Solutions Banner" 
+        style={{width: '100%', borderRadius: '5px'}}
+      />
+    </div>
     <div className="hero-box">
       <h2>Welcome to Focussed Solutions!</h2>
       <p>
@@ -91,9 +101,9 @@ const PageContact = () => (
     <h2>Contact Us</h2>
     <div className="contact-layout">
       <div className="contact-info">
-        <p><strong>Address:</strong> 27, Chipiyana Buzurg , Gautam Budha Nagar,Uttar Pradesh- 201009</p>
-        <p><strong>Phone:</strong> +91 8630477039 / +91 9927771988</p>
-        <p><strong>Email:</strong> fcsdsol@gmail.com</p>
+        <p><strong>Address:</strong> 27, CB Nagar, Greater Noida, Uttar pradesh, 201009</p>
+        <p><strong>Phone:</strong> +91 9217056624</p>
+        <p><strong>Email:</strong> sales@focussed.co.in</p>
       </div>
       <form className="big-form">
         <label>Your Name</label>
@@ -143,9 +153,50 @@ const TopBar = () => (
   <div className="top-bar">
     <div className="container flex-between">
       <span>📞 +91-8630477039 | ✉️ : fcsdsol@gmail.com</span>
-      <div className="socials">
-        <span>FB</span><span>TW</span><span>IN</span>
-      </div>
+      <div 
+      className="socials" 
+      style={{ display: "flex", gap: "15px", alignItems: "center" }}
+    >
+      {/* Facebook */}
+      <a 
+        href="https://facebook.com/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontSize: "24px", color: "#1877F2", cursor: "pointer" }}
+      >
+        <FaFacebookF />
+      </a>
+
+      {/* Twitter */}
+      <a 
+        href="https://twitter.com/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontSize: "24px", color: "#1DA1F2", cursor: "pointer" }}
+      >
+        <FaTwitter />
+      </a>
+
+      {/* Instagram */}
+      <a 
+        href="https://www.instagram.com/focussed_solutions?utm_source=qr&igsh=cnVoYndjeTVzb2ts" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontSize: "24px", color: "#E4405F", cursor: "pointer" }}
+      >
+        <FaInstagram />
+      </a>
+
+      {/* LinkedIn */}
+      <a 
+        href="https://linkedin.com/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{ fontSize: "24px", color: "#0077B5", cursor: "pointer" }}
+      >
+        <FaLinkedinIn />
+      </a>
+    </div>
     </div>
   </div>
 );
