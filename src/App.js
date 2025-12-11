@@ -103,7 +103,7 @@ const PageContact = () => (
       <div className="contact-info">
         <p><strong>Address:</strong> 27, CB Nagar, Greater Noida, Uttar pradesh, 201009</p>
         <p><strong>Phone:</strong> +91 9217056624</p>
-        <p><strong>Email:</strong> sales@focussed.co.in</p>
+        <p><strong>Email:</strong> sales@focussed.co.in || fcsdsol@gmail.com</p>
       </div>
       <form className="big-form">
         <label>Your Name</label>
@@ -152,7 +152,7 @@ const ProductDisplay = ({ category }) => {
 const TopBar = () => (
   <div className="top-bar">
     <div className="container flex-between">
-      <span>📞 +91-8630477039 | ✉️ : fcsdsol@gmail.com</span>
+      <span>📞 +91-8630477039 | ✉️ : sales@focussed</span>
       <div 
       className="socials" 
       style={{ display: "flex", gap: "15px", alignItems: "center" }}
