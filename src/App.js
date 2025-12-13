@@ -152,7 +152,7 @@ const ProductDisplay = ({ category }) => {
 const TopBar = () => (
   <div className="top-bar">
     <div className="container flex-between">
-      <span>📞 +91-8630477039 | ✉️ : sales@focussed</span>
+      <span>📞 <a href="tel:+919217056624">9217056624</a> | ✉️ : <a href="mailto:sales@focussed.co.in">sales@focussed.co.in</a></span>
       <div 
       className="socials" 
       style={{ display: "flex", gap: "15px", alignItems: "center" }}
