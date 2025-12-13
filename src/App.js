@@ -1,53 +1,87 @@
-import React, { useState } from 'react';
-import logo from '../src/focussed.jpeg';
-import connection from '../src/connection.jpeg';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import React, { useState } from "react";
+import logo from "../src/focussed.jpeg";
+import connection from "../src/connection.jpeg";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 // --- MOCK DATABASE FOR PRODUCTS ---
 const categoriesDB = {
-  "Antennas": [
-    { id: 1, name: "GPS Antenna", img: "📡", desc: "High precision GPS modules." },
-    { id: 2, name: "GSM Antenna", img: "📶", desc: "Standard GSM communication." },
+  Antennas: [
+    {
+      id: 1,
+      name: "GPS Antenna",
+      img: "📡",
+      desc: "High precision GPS modules.",
+    },
+    {
+      id: 2,
+      name: "GSM Antenna",
+      img: "📶",
+      desc: "Standard GSM communication.",
+    },
   ],
   "Attenuators & Terminators": [
     { id: 1, name: "1W Attenuator", img: "⚡", desc: "Low power handling." },
   ],
-  "default": [
-    { id: 1, name: "Generic Product", img: "📦", desc: "Product details coming soon." },
-    { id: 2, name: "Standard Component", img: "🔧", desc: "High quality material." }
-  ]
+  default: [
+    {
+      id: 1,
+      name: "Generic Product",
+      img: "📦",
+      desc: "Product details coming soon.",
+    },
+    {
+      id: 2,
+      name: "Standard Component",
+      img: "🔧",
+      desc: "High quality material.",
+    },
+  ],
 };
 
 const sidebarList = [
-  "Antennas", "Attenuators & Terminators", "Bias TEE", "Cavity Filters", 
-  "Ceramic Filters", "E1 & BER Testers", "LNA & Mixers", "RF Adapters", 
-  "RF Amplifiers", "RF Cable Assembly", "RF Cables", "RF Connectors", 
-  "Waveguides"
+  "Antennas",
+  "Attenuators & Terminators",
+  "Bias TEE",
+  "Cavity Filters",
+  "Ceramic Filters",
+  "E1 & BER Testers",
+  "LNA & Mixers",
+  "RF Adapters",
+  "RF Amplifiers",
+  "RF Cable Assembly",
+  "RF Cables",
+  "RF Connectors",
+  "Waveguides",
 ];
 
 // --- PAGE COMPONENTS (Content for Top Menu) ---
 
 const PageHome = () => (
   <div className="fade-in">
-    <div >
-      <img 
+    <div>
+      <img
         src={connection}
-        alt="Focussed Solutions Banner" 
-        style={{width: '100%', borderRadius: '5px'}}
+        alt="Focussed Solutions Banner"
+        style={{ width: "100%", borderRadius: "5px" }}
       />
     </div>
     <div className="hero-box">
       <h2>Welcome to Focussed Solutions!</h2>
       <p>
-        Focussed Solutions established in New Delhi India. We are India's leading 
-        representative company in high rel. Electronic, Communication, RF & MW Components.
+        Focussed Solutions established in New Delhi India. We are India's
+        leading representative company in high rel. Electronic, Communication,
+        RF & MW Components.
       </p>
       <button className="btn-red">Know More</button>
     </div>
     <h3>Featured Products</h3>
     <div className="grid-container">
-      {sidebarList.slice(0, 4).map(item => (
+      {sidebarList.slice(0, 4).map((item) => (
         <div key={item} className="grid-card">
           <div className="img-placeholder">★</div>
           <strong>{item}</strong>
@@ -61,11 +95,14 @@ const PageProfile = () => (
   <div className="fade-in">
     <h2>Company Profile</h2>
     <div className="text-content">
-      <p><strong>Founded in 2012</strong>, Focussed has grown into a major player in the RF industry.</p>
       <p>
-        Our mission is to provide high-quality electronic components to the Defense, 
-        Space, and Communication sectors. We partner with top manufacturers from 
-        the USA, Europe, and Asia.
+        <strong>Founded in 2012</strong>, Focussed has grown into a major player
+        in the RF industry.
+      </p>
+      <p>
+        Our mission is to provide high-quality electronic components to the
+        Defense, Space, and Communication sectors. We partner with top
+        manufacturers from the USA, Europe, and Asia.
       </p>
       <ul>
         <li>Headquarters: New Delhi, India</li>
@@ -101,9 +138,16 @@ const PageContact = () => (
     <h2>Contact Us</h2>
     <div className="contact-layout">
       <div className="contact-info">
-        <p><strong>Address:</strong> 27, CB Nagar, Greater Noida, Uttar pradesh, 201009</p>
-        <p><strong>Phone:</strong> +91 9217056624</p>
-        <p><strong>Email:</strong> sales@focussed.co.in || fcsdsol@gmail.com</p>
+        <p>
+          <strong>Address:</strong> 27, CB Nagar, Greater Noida, Uttar pradesh,
+          201009
+        </p>
+        <p>
+          <strong>Phone:</strong> +91 9217056624
+        </p>
+        <p>
+          <strong>Email:</strong> sales@focussed.co.in || fcsdsol@gmail.com
+        </p>
       </div>
       <form className="big-form">
         <label>Your Name</label>
@@ -126,11 +170,11 @@ const PageBlog = () => (
 // --- PRODUCT GRID COMPONENT ---
 const ProductDisplay = ({ category }) => {
   const products = categoriesDB[category] || categoriesDB["default"];
-  
+
   return (
     <div className="fade-in">
       <h2>{category}</h2>
-      <p style={{marginBottom: '20px', color: '#666'}}>
+      <p style={{ marginBottom: "20px", color: "#666" }}>
         Displaying available products for: <strong>{category}</strong>
       </p>
       <div className="grid-container">
@@ -152,65 +196,66 @@ const ProductDisplay = ({ category }) => {
 const TopBar = () => (
   <div className="top-bar">
     <div className="container flex-between">
-      <span>📞 <a href="tel:+919217056624">9217056624</a> | ✉️ : <a href="mailto:sales@focussed.co.in">sales@focussed.co.in</a></span>
-      <div 
-      className="socials" 
-      style={{ display: "flex", gap: "15px", alignItems: "center" }}
-    >
-      {/* Facebook */}
-      <a 
-        href="https://facebook.com/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontSize: "24px", color: "#1877F2", cursor: "pointer" }}
-      >
-        <FaFacebookF />
-      </a>
+      <span className="contact-text">
+        📞 <a href="tel:+919217056624">9217056624</a>
+        <span className="divider"> | </span>
+        ✉️ <a href="mailto:sales@focussed.co.in">sales@focussed.co.in</a>
+      </span>
 
-      {/* Twitter */}
-      <a 
-        href="https://twitter.com/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontSize: "24px", color: "#1DA1F2", cursor: "pointer" }}
-      >
-        <FaTwitter />
-      </a>
+      <div className="socials">
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaFacebookF />
+        </a>
 
-      {/* Instagram */}
-      <a 
-        href="https://www.instagram.com/focussed_solutions?utm_source=qr&igsh=cnVoYndjeTVzb2ts" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontSize: "24px", color: "#E4405F", cursor: "pointer" }}
-      >
-        <FaInstagram />
-      </a>
+        <a
+          href="https://twitter.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaTwitter />
+        </a>
 
-      {/* LinkedIn */}
-      <a 
-        href="https://linkedin.com/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{ fontSize: "24px", color: "#0077B5", cursor: "pointer" }}
-      >
-        <FaLinkedinIn />
-      </a>
-    </div>
+        <a
+          href="https://www.instagram.com/focussed_solutions?utm_source=qr&igsh=cnVoYndjeTVzb2ts"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram />
+        </a>
+
+        <a
+          href="https://linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedinIn />
+        </a>
+      </div>
     </div>
   </div>
 );
 
 const Navbar = ({ activePage, onMenuClick }) => {
-  const menuItems = ["Home", "Company Profile", "Services Offered", "Products", "Blog", "Contact Us"];
-  
+  const menuItems = [
+    "Home",
+    "Company Profile",
+    "Services Offered",
+    "Products",
+    "Blog",
+    "Contact Us",
+  ];
+
   return (
-  <nav
+    <nav
       style={{
         width: "100%",
         padding: "10px 0",
         background: "#4A521F",
-        boxShadow: "0 0 5px rgba(0,0,0,0.1)"
+        boxShadow: "0 0 5px rgba(0,0,0,0.1)",
       }}
     >
       <div
@@ -219,7 +264,7 @@ const Navbar = ({ activePage, onMenuClick }) => {
           margin: "0 auto",
           display: "flex",
           justifyContent: "space-between", // LOGO LEFT / MENU RIGHT
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         {/* LEFT LOGO */}
@@ -229,7 +274,10 @@ const Navbar = ({ activePage, onMenuClick }) => {
             alt="Logo"
             style={{
               height: "50px",
-              objectFit: "contain"
+              objectFit: "contain",
+              width: "auto",
+
+              display: "block",
             }}
           />
         </div>
@@ -241,7 +289,7 @@ const Navbar = ({ activePage, onMenuClick }) => {
             display: "flex",
             gap: "25px",
             margin: 0,
-            padding: 0
+            padding: 0,
           }}
         >
           {menuItems.map((item) => (
@@ -252,7 +300,7 @@ const Navbar = ({ activePage, onMenuClick }) => {
                 cursor: "pointer",
                 fontSize: "16px",
                 fontWeight: activePage === item ? "bold" : "normal",
-                color: activePage === item ? "#718138" : "white"
+                color: activePage === item ? "#718138" : "white",
               }}
             >
               {item}
@@ -268,8 +316,8 @@ const Sidebar = ({ activeCategory, onSelectProduct }) => (
   <aside className="sidebar">
     <div className="sidebar-box">
       <h3>Quick Contact</h3>
-      <input type="text" placeholder="Name" className="sidebar-input"/>
-      <input type="text" placeholder="Phone" className="sidebar-input"/>
+      <input type="text" placeholder="Name" className="sidebar-input" />
+      <input type="text" placeholder="Phone" className="sidebar-input" />
       <button className="btn-red">Contact Now</button>
     </div>
 
@@ -277,8 +325,8 @@ const Sidebar = ({ activeCategory, onSelectProduct }) => (
       <h3>Our Products</h3>
       <ul>
         {sidebarList.map((item) => (
-          <li 
-            key={item} 
+          <li
+            key={item}
             className={activeCategory === item ? "sidebar-active" : ""}
             onClick={() => onSelectProduct(item)}
           >
@@ -295,7 +343,7 @@ const Sidebar = ({ activeCategory, onSelectProduct }) => (
 function App() {
   // State 1: Which Top Menu Page is active?
   const [currentPage, setCurrentPage] = useState("Home");
-  
+
   // State 2: Which Product Category is active? (Only used if currentPage === "Products")
   const [selectedCategory, setSelectedCategory] = useState("Antennas");
 
@@ -309,8 +357,8 @@ function App() {
   const handleMenuClick = (pageName) => {
     setCurrentPage(pageName);
     // If they click "Products" in top menu, reset to a default category or keep previous
-    if(pageName === "Products" && !selectedCategory) {
-      setSelectedCategory("Antennas"); 
+    if (pageName === "Products" && !selectedCategory) {
+      setSelectedCategory("Antennas");
     }
   };
 
@@ -343,19 +391,16 @@ function App() {
   return (
     <div className="app-wrapper">
       <TopBar />
-     
 
       <Navbar activePage={currentPage} onMenuClick={handleMenuClick} />
 
       <div className="container main-layout">
-        <Sidebar 
-          activeCategory={currentPage === "Products" ? selectedCategory : null} 
-          onSelectProduct={handleSidebarClick} 
+        <Sidebar
+          activeCategory={currentPage === "Products" ? selectedCategory : null}
+          onSelectProduct={handleSidebarClick}
         />
-        
-        <main className="content-area">
-          {mainContentComponent}
-        </main>
+
+        <main className="content-area">{mainContentComponent}</main>
       </div>
 
       <footer className="footer">
@@ -422,6 +467,49 @@ function App() {
           .sidebar, .content-area { width: 100%; }
           .nav-list { flex-direction: column; text-align: center; }
         }
+
+
+      .socials {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .socials a {
+        color: rgba(255, 255, 255, 0.75); /* muted blend */
+        font-size: 22px;                 /* slightly larger */
+        display: flex;
+        align-items: center;
+        background: transparent;         /* kills white square */
+      }
+
+      .socials a:hover {
+        color: #ffffff;                  /* subtle pop on hover */
+      }
+
+      .contact-text,
+    .contact-text a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .contact-text a:hover {
+      color: #f2f2f2;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    .divider {
+      margin: 0 6px;
+      opacity: 0.6;
+    }
+    .site-logo {
+      height: 62px;              /* increased from 50 → 62 */
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
       `}</style>
     </div>
   );
