@@ -5,7 +5,7 @@ export default function Profile() {
 
       <div className="text-content">
         <p>
-          <strong>Founded in 2012</strong>, Focussed Solutions has grown into a
+          Focussed Solutions has grown into a
           trusted partner in the RF & Microwave industry.
         </p>
 
@@ -18,7 +18,6 @@ export default function Profile() {
         <ul>
           <li>Headquarters: New Delhi, India</li>
           <li>Specialization: RF & Microwave Components</li>
-          <li>Major Clients: DRDO, ISRO, BEL, Private OEMs</li>
         </ul>
       </div>
     </div>
